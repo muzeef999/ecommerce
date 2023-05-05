@@ -30,7 +30,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://13.50.236.236/api/register-user/",
+        "http://13.50.248.3/api/register-user/",
         {
           name,
           email,

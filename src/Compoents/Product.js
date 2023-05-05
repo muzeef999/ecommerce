@@ -18,7 +18,7 @@ const Product = (props) => {
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
     const { data } = await axios.get(
-      `http://13.50.236.236/api/all-products/${item.id}`
+      `http://13.50.248.3/api/all-products/${item.id}`
     );
     if (data.no_of_products < quantity) {
       window.alert("Soory. product is out stock");
@@ -33,8 +33,13 @@ const Product = (props) => {
         <img
           key={product.id}
           className="card-img-top"
-          style={{ width: "100%", height: "250px" }}
-          src={"http://13.50.236.236" + product.thumbnail}
+          style={{
+            width: "300px",
+            height: "400px",
+            objectFit: "contain",
+            alignItems: "center",
+          }}
+          src={"http://13.50.248.3" + product.thumbnail}
           alt={product.product_title}
         />
       </Link>

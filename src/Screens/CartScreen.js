@@ -59,7 +59,7 @@ export default function CartScreen() {
                     <Row className="align-items-center">
                       <Col md={4}>
                         <img
-                          src={"http://13.50.236.236" + item.thumbnail}
+                          src={"http://13.50.248.3" + item.thumbnail}
                           alt={item.product_title}
                           className="img-fluid rounded img-thumbnail"
                         ></img>{" "}

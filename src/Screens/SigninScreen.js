@@ -8,7 +8,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
-import { Modal } from "react-bootstrap";
+import { Col, Modal, Row } from "react-bootstrap";
 import { OtpForm } from "./OtpForm";
 
 export default function SigninScreen() {
@@ -35,7 +35,7 @@ export default function SigninScreen() {
       } else if (number.length < 10) {
         toast.error("Enter valid phone number");
       } else {
-        let url = "http://13.50.236.236/api/login/";
+        let url = "http://13.50.248.3/api/login/";
 
         let options = {
           method: "POST",
@@ -72,42 +72,55 @@ export default function SigninScreen() {
 
   return (
     <div>
-      <Container className="small-container">
+      <Container>
         <Helmet>
           <title>Sign In</title>
         </Helmet>
 
         {otpForm ? (
           <div>
-            <h1 className="my-3">Sign In</h1>
-            {/*  <Form onSubmit={submitHandler}>
-              <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control type="number" ref={phoneRef} />
-              </Form.Group>
+            <Container>
+              <Row>
+                <Col
+                  md={6}
+                  className="d-flex justify-content-center align-items-center"
+                >
+                  <div>
+                    <h1 className="my-3">Sign In</h1>
 
-              */}
+                    <Form onSubmit={submitHandler}>
+                      <Form.Group className="mb-3" controlId="email">
+                        <Form.Label>Phone</Form.Label>
+                        <Form.Control
+                          type="number"
+                          onChange={(e) => setNumber(e.target.value)}
+                          width={"100%"}
+                          placeholder="Phone Number"
+                        />
+                      </Form.Group>
 
-            <Form onSubmit={submitHandler}>
-              <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control
-                  type="number"
-                  onChange={(e) => setNumber(e.target.value)}
-                />
-              </Form.Group>
+                      <div className="mb-3">
+                        <Button type="submit">Sign OTP</Button>
+                      </div>
 
-              <div className="mb-3">
-                <Button type="submit">Sign OTP</Button>
-              </div>
-
-              <div className="mb-3">
-                New customer?{" "}
-                <Link to={`/signup?redirect=${redirect}`}>
-                  Create your account
-                </Link>
-              </div>
-            </Form>
+                      <div className="mb-3">
+                        New customer?{" "}
+                        <Link to={`/signup?redirect=${redirect}`}>
+                          Create your account
+                        </Link>
+                      </div>
+                    </Form>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <img
+                    src={require("../asserts/login.jpg")}
+                    alt="SignIn"
+                    width={"100%"}
+                  />
+                </Col>
+              </Row>
+            </Container>
           </div>
         ) : (
           <>

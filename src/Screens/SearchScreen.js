@@ -75,6 +75,7 @@ const SearchScreen = () => {
   const sp = new URLSearchParams(search);
   const category = sp.get("category") || "all";
   const query = sp.get("query") || "all";
+  console.log(query);
   const price = sp.get("price") || "all";
   const rating = sp.get("rating") || "all";
   const order = sp.get("order") || "newest";
@@ -90,9 +91,9 @@ const SearchScreen = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `http://13.50.236.236/api/products/?search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+          `http://13.50.248.3/api/products/?search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
         );
-        console.log(data);
+
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
         dispatch({
@@ -110,7 +111,7 @@ const SearchScreen = () => {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          `http://13.50.236.236/super-admin/all-category/`
+          `http://13.50.248.3/super-admin/all-category/`
         );
         setCategories(data.data);
       } catch (err) {

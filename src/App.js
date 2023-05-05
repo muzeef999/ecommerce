@@ -33,7 +33,7 @@ function App() {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          "http://13.50.236.236/super-admin/all-category/"
+          "http://13.50.248.3/super-admin/all-category/"
         );
         setCategories(data.data);
       } catch (err) {

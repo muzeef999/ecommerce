@@ -23,13 +23,10 @@ export const OtpForm = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post(
-        "http://13.50.236.236/api/verify-otp/",
-        {
-          uid: USER_ID,
-          otp: otpRef,
-        }
-      );
+      const { data } = await axios.post("http://13.50.248.3/api/verify-otp/", {
+        uid: USER_ID,
+        otp: otpRef,
+      });
 
       console.log(data);
       var status = data["status"];

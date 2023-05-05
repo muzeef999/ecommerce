@@ -37,9 +37,7 @@ const HomeScreen = () => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
-        const result = await axios.get(
-          "http://13.50.236.236/api/all-products/"
-        );
+        const result = await axios.get("http://13.50.248.3/api/all-products/");
 
         dispatch({ type: "FETCH_SUCCESS", payload: result.data.data });
       } catch (err) {
@@ -51,7 +49,7 @@ const HomeScreen = () => {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          "http://13.50.236.236/super-admin/all-category/"
+          "http://13.50.248.3/super-admin/all-category/"
         );
         setCategories(data.data);
       } catch (err) {
@@ -86,7 +84,7 @@ const HomeScreen = () => {
               >
                 <div style={{ padding: "20px" }}>
                   <img
-                    src={"http://13.50.236.236" + category.category_image}
+                    src={"http://13.50.248.3" + category.category_image}
                     alt={category.category}
                     style={{
                       width: "100%",
